@@ -1,1 +1,312 @@
-"Hello World" 
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        @font-face{
+            font-family: Monaco;
+            src:url('font/monaco.ttf'),url('font/monaco.eot');
+        }
+        @keyframes changecolor {
+            0%   {background: #ce0000;}
+            23%  {background: #ce0000;}
+            25%  {background: #c58000;}
+            48%  {background: #c58000;}
+            50%  {background: #0068b4;}
+            73%  {background: #0068b4;}
+            75%  {background: green;}
+            98%  {background: green;}
+            100% {background: #ce0000;}
+        }
+        @keyframes changewidth {
+            from {width: 100%;opacity: 1.0;}
+            17%  {opacity: 1.0;}
+            20%  {opacity: 0;}
+            23%  {opacity: 1.0;}
+            25%  {opacity: 1.0;}
+            28%  {opacity: 0;}
+            31%  {opacity: 1.0;}
+            33%  {opacity: 1.0;}
+            36%  {opacity: 0;}
+            39%  {opacity: 1.0;}
+            to   {width: 0;opacity: 1.0;}
+        }
+        @keyframes fade {
+            from {text-shadow: 0 0 10px whitesmoke;}
+            50%  {text-shadow: 0 0 0px whitesmoke;}
+            to   {text-shadow: 0 0 10px whitesmoke;}
+        }
+        @keyframes glitch1 {
+            0% {clip: rect(82px, 820px, 98px, 0); }
+            5.8823529412% {clip: rect(17px, 820px, 4px, 0); }
+            11.7647058824% {clip: rect(24px, 820px, 44px, 0); }
+            17.6470588235% {clip: rect(24px, 820px, 111px, 0); }
+            23.5294117647% {clip: rect(29px, 820px, 45px, 0); }
+            29.4117647059% {clip: rect(114px, 820px, 115px, 0); }
+            35.2941176471% {clip: rect(103px, 820px, 22px, 0); }
+            41.1764705882% {clip: rect(49px, 820px, 32px, 0); }
+            47.0588235294% {clip: rect(2px, 820px, 10px, 0); }
+            52.9411764706% {clip: rect(80px, 820px, 44px, 0); }
+            58.8235294118% {clip: rect(70px, 820px, 30px, 0); }
+            64.7058823529% {clip: rect(27px, 820px, 79px, 0); }
+            70.5882352941% {clip: rect(82px, 820px, 112px, 0); }
+            76.4705882353% {clip: rect(27px, 820px, 2px, 0); }
+            82.3529411765% {clip: rect(47px, 820px, 104px, 0); }
+            88.2352941176% {clip: rect(53px, 820px, 102px, 0); }
+            94.1176470588% {clip: rect(2px, 820px, 90px, 0); }
+            100% {clip: rect(88px, 820px, 56px, 0); } }
+        @keyframes glitch2 {
+            0% {clip: rect(88px, 820px, 68px, 0); }
+            5.8823529412% {clip: rect(75px, 820px, 113px, 0); }
+            11.7647058824% {clip: rect(80px, 820px, 40px, 0); }
+            17.6470588235% {clip: rect(70px, 820px, 51px, 0); }
+            23.5294117647% {clip: rect(47px, 820px, 78px, 0); }
+            29.4117647059% {clip: rect(61px, 820px, 7px, 0); }
+            35.2941176471% {clip: rect(94px, 820px, 1px, 0); }
+            41.1764705882% {clip: rect(26px, 820px, 69px, 0); }
+            47.0588235294% {clip: rect(91px, 820px, 62px, 0); }
+            52.9411764706% {clip: rect(8px, 820px, 78px, 0); }
+            58.8235294118% {clip: rect(17px, 820px, 97px, 0); }
+            64.7058823529% {clip: rect(66px, 820px, 48px, 0); }
+            70.5882352941% {clip: rect(66px, 820px, 85px, 0); }
+            76.4705882353% {clip: rect(46px, 820px, 12px, 0); }
+            82.3529411765% {clip: rect(69px, 820px, 68px, 0); }
+            88.2352941176% {clip: rect(38px, 820px, 7px, 0); }
+            94.1176470588% {clip: rect(83px, 820px, 32px, 0); }
+            100% {clip: rect(110px, 820px, 95px, 0); } }
+        @keyframes movex {
+            78% {transform: translate(-10%, -10%) skewX(0);}
+            79% {transform: translate(-10%, -10%) skewX(10deg);}
+            80% {transform: translate(-10%, -10%) skewX(-10deg);}
+            81% {transform: translate(-10%, -10%) skewX(0);}
+        }
+        @keyframes shadow {
+            20% {left: -1px;height: 32px;}
+            60% {left: 2px;height: 6px;}
+            100% {left: -2px;height: 42px;}
+        }
+        @keyframes virt {
+            20% {height: 42px;}
+            35% {height: 12px;}
+            50% {height: 40px;}
+            60% {height: 20px;}
+            70% {height: 34px;}
+            80% {height: 22px;}
+            100% {height: 0px;}
+        }
+        body{
+            animation: changecolor 10s infinite;
+        }
+        h1{
+            padding:1rem;
+        }
+        h1::before{
+            display: inline-block;
+            content: "?";
+            position: absolute;
+            top: 0;
+            left: 2px;
+            height: 0px;
+            color: gray;
+            z-index: 2;
+            visibility: hidden;
+            text-shadow: 0.1px 0 0 darkgray;
+            mix-blend-mode: color-burn;
+        }
+        h1::after{
+            display: inline-block;
+            content: '?';
+            position: absolute;
+            top: 0;
+            left: -3px;
+            height: 64px;
+            overflow: hidden;
+            z-index: 3;
+            visibility: hidden;
+            -webkit-filter: contrast(200%);
+            mix-blend-mode: hard-light;//
+        }
+        .bbox{
+            position: absolute;
+            top: 2%;
+            left: 98%;
+        }
+        .bars{
+            box-sizing: border-box;
+            position: relative;
+            width:.5em;
+            height:.5em;
+            background-color:white;
+            border-radius:50%;
+            cursor:pointer;
+            box-shadow: 0 0 5px whitesmoke;
+        }
+        .bars:before{
+            box-sizing:border-box;
+            content:"";
+            position:absolute;
+            top:0;
+            left:-.75em;
+            width:.5em;
+            height:.5em;
+            background-color:white;
+            border-radius:50%;
+            box-shadow: 0 0 5px whitesmoke;
+        }
+        .bars:after{
+            box-sizing:border-box;
+            content:"";
+            position:absolute;
+            top:0;
+            left:.75em;
+            width:.5em;
+            height:.5em;
+            background-color:white;
+            border-radius:50%;
+            box-shadow: 0 0 5px whitesmoke;
+        }
+        .box{
+            height: 8%;
+            width: 10%;
+            position: absolute;
+            top: 46%;
+            left: 45%;
+        }
+        .wbox{
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: changecolor 10s infinite;
+        }
+        .text{
+            font-family: Monaco;
+            font-style: italic;
+            font-size: 50px;
+            color: white;
+            margin: 5px;
+            padding: 5px;
+            text-align: center;
+            text-shadow: 0 0 10px #F6F4F2;
+        }
+        .vbox{
+            z-index: 10;
+            background-color: white;
+            position: absolute;
+            left: 0;
+            box-shadow: 0 0 5px whitesmoke;
+        }
+        .tbox{
+            position: absolute;
+            height: 4%;
+            width: 5%;
+            top: 54%;
+            left: 47.5%;
+            color: white;
+            text-align: center;
+            font-family: Monaco;
+            font-size: 12px;
+            animation: fade 4s linear infinite;
+        }
+        .tbox:before, .tbox:after {
+            content: attr(data-d);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            clip: rect(0, 0, 0, 0);
+        }
+        .tbox:after {
+            left: 4px;
+            text-shadow: -1px 0 whitesmoke;
+            animation: glitch1 2s infinite ease-out alternate-reverse;
+        }
+        .tbox:before {
+            left: -4px;
+            text-shadow: 2px 0 whitesmoke;
+            animation: glitch2 3s infinite ease-in alternate-reverse;
+        }
+        #vbox1{
+            height: 8%;
+            top: 38%;
+            animation: changewidth 0.8s ease-out 0.3s;
+        }
+        #vbox2{
+            height: 8%;
+            top: 46%;
+            animation: changewidth 0.8s ease-out 0.2s;
+        }
+        #vbox3{
+            height: 8%;
+            top: 54%;
+            animation: changewidth 0.8s ease-out 0.1s;
+        }
+    </style>
+    <script>
+        function giltch() {
+            var h1 = document.getElementsByTagName("h1");
+            var h1After = window.getComputedStyle(h1,"after");
+            var h1Before = window.getComputedStyle(h1,"before");
+            alert(h1After.visibility);
+            h1.style.animation = "movex 5s ease-in infinite";
+            h1After.animation = "virt 1s ease-out infinite";
+            h1After.visibility = "visible";
+            h1Before.animation = "shadow 1.5s ease-in infinite";
+            h1Before.visibility = "visible";
+        }
+    </script>
+</head>
+<body>
+
+    <div class="bbox">
+        <div class="bars" onclick="giltch()"></div>
+    </div>
+    <div class="vbox" id="vbox1"></div>
+    <div class="vbox" id="vbox2"></div>
+    <div class="vbox" id="vbox3"></div>
+    <div class="box">
+        <div class="wbox">
+            <h1 id="word1" class="text" lang="?">T</h1>
+            <h1 id="word2" class="text" lang="?">T</h1>
+            <h1 id="word3" class="text" lang="?">T</h1>
+            <h1 id="word4" class="text" lang="?">T</h1>
+        </div>
+    </div>
+    <div class="tbox" data-d="coming soon">coming soon</div>
+
+    <script>
+        var dic = ["/", ">", "+", "[", "]", "`", "=", "}", "?", "^", "&", "#", "@", "!", "+", "{", "<", "*",")","("];
+        var char1 = document.getElementById("word1");
+        var char2 = document.getElementById("word2");
+        var char3 = document.getElementById("word3");
+        var char4 = document.getElementById("word4");
+
+        function loop() {
+
+            var num1, num2, num3, num4;
+            var charAfter1,charAfter2,charAfter3,charAfter4;
+            num1 = Math.floor(Math.random()*20);
+            num2 = Math.floor(Math.random()*20);
+            num3 = Math.floor(Math.random()*20);
+            num4 = Math.floor(Math.random()*20);
+
+            charAfter1 = dic[num1];
+            charAfter2 = dic[num2];
+            charAfter3 = dic[num3];
+            charAfter4 = dic[num4];
+            char1.innerHTML = charAfter1;
+            char2.innerHTML = charAfter2;
+            char3.innerHTML = charAfter3;
+            char4.innerHTML = charAfter4;
+
+            window.setTimeout(loop,70);
+        }
+
+
+
+        window.requestAnimationFrame(loop);
+
+    </script>
+</body>
+</html>
